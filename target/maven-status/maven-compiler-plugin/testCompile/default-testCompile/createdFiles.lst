@@ -7,3 +7,4 @@ com/test/support/DriverManager.class
 com/test/support/ReportPlugin.class
 com/test/support/Helpers.class
 com/test/support/Global.class
+com/test/support/addUserPojo.class

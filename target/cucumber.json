@@ -3,7 +3,7 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2021-03-03T14:34:39.187Z",
+        "start_timestamp": "2021-04-05T19:00:52.105Z",
         "line": 8,
         "name": "test long type",
         "description": "",
@@ -11,7 +11,7 @@
         "after": [
           {
             "result": {
-              "duration": 661000,
+              "duration": 144551000,
               "status": "passed"
             },
             "match": {
@@ -24,7 +24,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1557000,
+              "duration": 2562697000,
               "status": "passed"
             },
             "line": 4,
@@ -43,7 +43,7 @@
         ]
       },
       {
-        "start_timestamp": "2021-03-03T14:34:39.295Z",
+        "start_timestamp": "2021-04-05T19:00:54.976Z",
         "line": 14,
         "name": "example",
         "description": "",
@@ -51,7 +51,7 @@
         "after": [
           {
             "result": {
-              "duration": 1005000,
+              "duration": 140987000,
               "status": "passed"
             },
             "match": {
@@ -64,7 +64,7 @@
         "steps": [
           {
             "result": {
-              "duration": 423000,
+              "duration": 1973675000,
               "status": "passed"
             },
             "line": 10,
@@ -79,24 +79,47 @@
               "location": "com.test.stepdefs.InitialIT.logSomething(java.lang.String)"
             },
             "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1463000,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "perform guice test",
+            "match": {
+              "location": "com.test.stepdefs.InitialIT.guiceTest()"
+            },
+            "keyword": "And "
           }
         ]
       },
       {
-        "start_timestamp": "2021-03-03T14:34:39.392Z",
-        "line": 24,
-        "name": "Add a user and validate the user has been added to the table",
+        "start_timestamp": "2021-04-05T19:00:57.139Z",
+        "line": 28,
+        "name": "Add a user using pojo class in a scenario",
         "description": "",
-        "id": "initial-integration-test-feature;add-a-user-and-validate-the-user-has-been-added-to-the-table;;2",
+        "id": "initial-integration-test-feature;add-a-user-using-pojo-class-in-a-scenario",
+        "after": [
+          {
+            "result": {
+              "duration": 133764000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.test.stepdefs.InitialIT.closeBrowser()"
+            }
+          }
+        ],
         "type": "scenario",
-        "keyword": "Scenario Outline",
+        "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 3614000,
+              "duration": 3394072000,
               "status": "passed"
             },
-            "line": 19,
+            "line": 29,
             "name": "I open the site \"http://www.way2automation.com/angularjs-protractor/webtables/\"",
             "match": {
               "arguments": [
@@ -111,50 +134,37 @@
           },
           {
             "result": {
-              "duration": 335000,
+              "duration": 11798971000,
               "status": "passed"
             },
-            "line": 20,
-            "name": "I add  user with the following information \"TestFirstName\" \"TestLastName\" \"testusername\" \"test12345\" \"testuser@testcompany.com\" \"123-456-7890\"",
+            "line": 30,
+            "name": "I add  user with passing info to pojo class",
             "match": {
-              "arguments": [
-                {
-                  "val": "\"TestFirstName\"",
-                  "offset": 43
-                },
-                {
-                  "val": "\"TestLastName\"",
-                  "offset": 59
-                },
-                {
-                  "val": "\"testusername\"",
-                  "offset": 74
-                },
-                {
-                  "val": "\"test12345\"",
-                  "offset": 89
-                },
-                {
-                  "val": "\"testuser@testcompany.com\"",
-                  "offset": 101
-                },
-                {
-                  "val": "\"123-456-7890\"",
-                  "offset": 128
-                }
-              ],
-              "location": "com.test.stepdefs.InitialIT.AddUser(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)"
+              "location": "com.test.stepdefs.InitialIT.AddUserWithPOJO(java.util.List\u003ccom.test.support.addUserPojo\u003e)"
             },
+            "rows": [
+              {
+                "cells": [
+                  "FirstName",
+                  "LastName",
+                  "username",
+                  "password",
+                  "Email",
+                  "CellPhone"
+                ]
+              },
+              {
+                "cells": [
+                  "TestFirstName3",
+                  "TestLastName3",
+                  "testusername3",
+                  "test67890",
+                  "testuser3@testcompany3.com",
+                  "456-789-1122"
+                ]
+              }
+            ],
             "keyword": "When "
-          },
-          {
-            "result": {
-              "status": "undefined"
-            },
-            "line": 21,
-            "name": "I see user \"testusername\" added to the table",
-            "match": {},
-            "keyword": "Then "
           }
         ]
       }
@@ -164,55 +174,6 @@
     "id": "initial-integration-test-feature",
     "keyword": "Feature",
     "uri": "classpath:com/test/InitialTest.feature",
-    "tags": []
-  },
-  {
-    "line": 1,
-    "elements": [
-      {
-        "start_timestamp": "2021-03-03T14:34:39.446Z",
-        "line": 2,
-        "name": "Could not execute Cucumber",
-        "description": "",
-        "id": "failure;could-not-execute-cucumber",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 0,
-              "status": "passed"
-            },
-            "line": 3,
-            "name": "Cucumber could not execute",
-            "match": {
-              "arguments": [],
-              "location": "io.cucumber.core.Failure.cucumber_could_not_execute()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 0,
-              "error_message": "java.lang.NullPointerException",
-              "status": "failed"
-            },
-            "line": 4,
-            "name": "Cucumber will report this error:",
-            "match": {
-              "arguments": [],
-              "location": "io.cucumber.core.Failure.cucumber_reports_this_error()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      }
-    ],
-    "name": "Test run failed",
-    "description": "There were errors during the execution",
-    "id": "failure",
-    "keyword": "Feature",
-    "uri": "classpath:io/cucumber/core/failure.feature",
     "tags": []
   }
 ]

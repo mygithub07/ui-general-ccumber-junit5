@@ -1,8 +1,12 @@
 
 package com.test.stepdefs;
 
+import com.test.support.addUserPojo;
 import io.cucumber.java.After;
+import io.cucumber.java.DataTableType;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import org.openqa.selenium.*;
@@ -14,7 +18,9 @@ import org.slf4j.LoggerFactory;
 import com.google.inject.Inject;
 import java.net.MalformedURLException;
 import java.util.List;
+import java.util.Map;
 
+import static org.assertj.core.api.Assertions.assertThat;
 //import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.test.support.Global;
 //import com.test.support.BasePage;
@@ -51,9 +57,7 @@ public class InitialIT  {
         public void logSomething(String teststr )   {
             System.out.println("sample text:"+ teststr+"somethingtoIdentifySpace");
        }
-        
- 
-        
+       
   /****** Old way of injecting****    
         @Inject
         public InitialIT(Global global) {
@@ -100,7 +104,106 @@ public class InitialIT  {
                Thread.sleep(1000);
        }
        
+         @Then("I see user {string} added to the table")
+         public void userAdded(String un){
+            System.out.println("username after addition"+ un);
+            assertThat(true).isEqualTo(true);
+         }
       
+         @And("perform guice test" )
+                 public void guiceTest(){
+               System.out.println(global.help.guiceTest());
+                 }
+                 
+        @DataTableType
+        public addUserPojo userentry(Map<String, String> entry) {
+        return new addUserPojo(entry.get("FirstName"),entry.get("LastName"),entry.get("username"),entry.get("password"),entry.get("Email"),entry.get("CellPhone"));
+        } 
+       
+       @When("I add  user with passing info to pojo class")
+        public void AddUserWithPOJO( List<addUserPojo> adduser) throws MalformedURLException, InterruptedException {
+            
+           // System.out.println("firstname..."+ adduser.toString());
+             for (addUserPojo addUserFields : adduser) {
+                 System.out.println("firstname..."+addUserFields.getFirstName());
+                 System.out.println("LastName..."+addUserFields.getLastName());
+                 System.out.println("username..."+addUserFields.getusername());
+                 System.out.println("pwd..."+addUserFields.getpassword());
+                 System.out.println("email..."+addUserFields.getEmail());
+                 System.out.println("cellphone..."+addUserFields.getCellPhone());
+                 
+                  PageObjects.AddUser.click();
+                
+                global.wait.until(ExpectedConditions.visibilityOf(PageObjects.fName));
+               
+                 //    System.out.println("firstname:"+  PageObjects.fName+"lastname" );
+                 PageObjects.fName.sendKeys(addUserFields.getFirstName());
+                 Thread.sleep(1000);
+                 PageObjects.lName.sendKeys(addUserFields.getLastName());
+                 Thread.sleep(1000);
+                 PageObjects.uName.sendKeys(addUserFields.getusername());
+                 Thread.sleep(1000);
+                 PageObjects.pWord.sendKeys(addUserFields.getpassword());
+                 Thread.sleep(1000);
+                 PageObjects.customer.get(0).click();
+                 Thread.sleep(1000);
+                 PageObjects.role.get(0).click();
+                 Thread.sleep(1000);
+                 PageObjects.sales.click();
+                 Thread.sleep(1000);
+                 PageObjects.email.sendKeys(addUserFields.getEmail());
+                 Thread.sleep(1000);
+                 PageObjects.mphone.sendKeys(addUserFields.getCellPhone());
+                 Thread.sleep(1000);
+                 PageObjects.save.click();
+                 Thread.sleep(1000);
+                 
+             }
+             
+       } 
+       
+        @When("I add  user with passing info to pojo class from scenario outline")
+        public void AddUserWithPOJOScOut( List<addUserPojo> adduser) throws MalformedURLException, InterruptedException {
+            
+           // System.out.println("firstname..."+ adduser.toString());
+             for (addUserPojo addUserFields : adduser) {
+                 System.out.println("firstname..."+addUserFields.getFirstName());
+                 System.out.println("LastName..."+addUserFields.getLastName());
+                 System.out.println("username..."+addUserFields.getusername());
+                 System.out.println("pwd..."+addUserFields.getpassword());
+                 System.out.println("email..."+addUserFields.getEmail());
+                 System.out.println("cellphone..."+addUserFields.getCellPhone());
+                 
+             }
+             /*
+                  PageObjects.AddUser.click();
+                
+                global.wait.until(ExpectedConditions.visibilityOf(PageObjects.fName));
+               
+                 //    System.out.println("firstname:"+  PageObjects.fName+"lastname" );
+                 PageObjects.fName.sendKeys(addUserFields.getFirstName());
+                 Thread.sleep(1000);
+                 PageObjects.lName.sendKeys(addUserFields.getLastName());
+                 Thread.sleep(1000);
+                 PageObjects.uName.sendKeys(addUserFields.getusername());
+                 Thread.sleep(1000);
+                 PageObjects.pWord.sendKeys(addUserFields.getpassword());
+                 Thread.sleep(1000);
+                 PageObjects.customer.get(0).click();
+                 Thread.sleep(1000);
+                 PageObjects.role.get(0).click();
+                 Thread.sleep(1000);
+                 PageObjects.sales.click();
+                 Thread.sleep(1000);
+                 PageObjects.email.sendKeys(addUserFields.getEmail());
+                 Thread.sleep(1000);
+                 PageObjects.mphone.sendKeys(addUserFields.getCellPhone());
+                 Thread.sleep(1000);
+                 PageObjects.save.click();
+                 Thread.sleep(1000);
+             */
+       }
+       
          @After
         public void closeBrowser() {
 
