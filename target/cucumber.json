@@ -3,7 +3,7 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2021-04-05T19:00:52.105Z",
+        "start_timestamp": "2021-04-11T19:46:02.843Z",
         "line": 8,
         "name": "test long type",
         "description": "",
@@ -11,7 +11,7 @@
         "after": [
           {
             "result": {
-              "duration": 144551000,
+              "duration": 120614000,
               "status": "passed"
             },
             "match": {
@@ -24,7 +24,7 @@
         "steps": [
           {
             "result": {
-              "duration": 2562697000,
+              "duration": 3849141000,
               "status": "passed"
             },
             "line": 4,
@@ -43,7 +43,7 @@
         ]
       },
       {
-        "start_timestamp": "2021-04-05T19:00:54.976Z",
+        "start_timestamp": "2021-04-11T19:46:07.026Z",
         "line": 14,
         "name": "example",
         "description": "",
@@ -51,7 +51,7 @@
         "after": [
           {
             "result": {
-              "duration": 140987000,
+              "duration": 133210000,
               "status": "passed"
             },
             "match": {
@@ -64,7 +64,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1973675000,
+              "duration": 2347794000,
               "status": "passed"
             },
             "line": 10,
@@ -82,7 +82,7 @@
           },
           {
             "result": {
-              "duration": 1463000,
+              "duration": 2136000,
               "status": "passed"
             },
             "line": 11,
@@ -95,15 +95,15 @@
         ]
       },
       {
-        "start_timestamp": "2021-04-05T19:00:57.139Z",
+        "start_timestamp": "2021-04-11T19:46:09.702Z",
         "line": 28,
-        "name": "Add a user using pojo class in a scenario",
+        "name": "Add a user using pojo class in a scenario using data table and @DataTableType",
         "description": "",
-        "id": "initial-integration-test-feature;add-a-user-using-pojo-class-in-a-scenario",
+        "id": "initial-integration-test-feature;add-a-user-using-pojo-class-in-a-scenario-using-data-table-and-@datatabletype",
         "after": [
           {
             "result": {
-              "duration": 133764000,
+              "duration": 144402000,
               "status": "passed"
             },
             "match": {
@@ -116,7 +116,7 @@
         "steps": [
           {
             "result": {
-              "duration": 3394072000,
+              "duration": 2910592000,
               "status": "passed"
             },
             "line": 29,
@@ -134,7 +134,7 @@
           },
           {
             "result": {
-              "duration": 11798971000,
+              "duration": 11817620000,
               "status": "passed"
             },
             "line": 30,
@@ -165,6 +165,158 @@
               }
             ],
             "keyword": "When "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-04-11T19:46:24.606Z",
+        "line": 42,
+        "name": "Add a user using pojo class in scenario outline using @ParameterType",
+        "description": "",
+        "id": "initial-integration-test-feature;add-a-user-using-pojo-class-in-scenario-outline-using-@parametertype;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 157016000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.test.stepdefs.InitialIT.closeBrowser()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 3316041000,
+              "status": "passed"
+            },
+            "line": 37,
+            "name": "I open the site \"http://www.way2automation.com/angularjs-protractor/webtables/\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"http://www.way2automation.com/angularjs-protractor/webtables/\"",
+                  "offset": 16
+                }
+              ],
+              "location": "com.test.stepdefs.InitialIT.OpenSite(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 11733903000,
+              "status": "passed"
+            },
+            "line": 38,
+            "name": "I add  user by passing TestFirstName4,TestLastName4,testusername4,test98760,testuser4@testcompany4.com,7890-123-2233 to pojo class from scenario outline",
+            "match": {
+              "arguments": [
+                {
+                  "val": "TestFirstName4,TestLastName4,testusername4,test98760,testuser4@testcompany4.com,7890-123-2233",
+                  "offset": 23
+                }
+              ],
+              "location": "com.test.stepdefs.InitialIT.AddUserWithPOJOScOut(com.test.support.addUserPojo)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 108575000,
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "I see user TestFirstName4,TestLastName4,testusername4,test98760,testuser4@testcompany4.com,7890-123-2233 added to the table",
+            "match": {
+              "arguments": [
+                {
+                  "val": "TestFirstName4,TestLastName4,testusername4,test98760,testuser4@testcompany4.com,7890-123-2233",
+                  "offset": 11
+                }
+              ],
+              "location": "com.test.stepdefs.InitialIT.userAddedParamType(com.test.support.addUserPojo)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-04-11T19:46:39.982Z",
+        "line": 43,
+        "name": "Add a user using pojo class in scenario outline using @ParameterType",
+        "description": "",
+        "id": "initial-integration-test-feature;add-a-user-using-pojo-class-in-scenario-outline-using-@parametertype;;3",
+        "after": [
+          {
+            "result": {
+              "duration": 164660000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.test.stepdefs.InitialIT.closeBrowser()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 4102890000,
+              "status": "passed"
+            },
+            "line": 37,
+            "name": "I open the site \"http://www.way2automation.com/angularjs-protractor/webtables/\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"http://www.way2automation.com/angularjs-protractor/webtables/\"",
+                  "offset": 16
+                }
+              ],
+              "location": "com.test.stepdefs.InitialIT.OpenSite(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 12106236000,
+              "status": "passed"
+            },
+            "line": 38,
+            "name": "I add  user by passing TestFirstName5,TestLastName5,testusername5,test67890,testuser5@testcompany5.com,456-789-1122 to pojo class from scenario outline",
+            "match": {
+              "arguments": [
+                {
+                  "val": "TestFirstName5,TestLastName5,testusername5,test67890,testuser5@testcompany5.com,456-789-1122",
+                  "offset": 23
+                }
+              ],
+              "location": "com.test.stepdefs.InitialIT.AddUserWithPOJOScOut(com.test.support.addUserPojo)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1290000,
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "I see user TestFirstName5,TestLastName5,testusername5,test67890,testuser5@testcompany5.com,456-789-1122 added to the table",
+            "match": {
+              "arguments": [
+                {
+                  "val": "TestFirstName5,TestLastName5,testusername5,test67890,testuser5@testcompany5.com,456-789-1122",
+                  "offset": 11
+                }
+              ],
+              "location": "com.test.stepdefs.InitialIT.userAddedParamType(com.test.support.addUserPojo)"
+            },
+            "keyword": "Then "
           }
         ]
       }

@@ -4,6 +4,7 @@ package com.test.stepdefs;
 import com.test.support.addUserPojo;
 import io.cucumber.java.After;
 import io.cucumber.java.DataTableType;
+import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -17,8 +18,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.google.inject.Inject;
 import java.net.MalformedURLException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 //import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -120,10 +123,15 @@ public class InitialIT  {
         return new addUserPojo(entry.get("FirstName"),entry.get("LastName"),entry.get("username"),entry.get("password"),entry.get("Email"),entry.get("CellPhone"));
         } 
        
+        @ParameterType(".*?")
+          public addUserPojo defineStringToPojo(String adduser) {
+            List<String> usr = Arrays.asList(adduser.split(","));
+           return  new addUserPojo(usr.get(0),usr.get(1),usr.get(2),usr.get(3),usr.get(4),usr.get(5));
+          }
+        
        @When("I add  user with passing info to pojo class")
         public void AddUserWithPOJO( List<addUserPojo> adduser) throws MalformedURLException, InterruptedException {
             
-           // System.out.println("firstname..."+ adduser.toString());
              for (addUserPojo addUserFields : adduser) {
                  System.out.println("firstname..."+addUserFields.getFirstName());
                  System.out.println("LastName..."+addUserFields.getLastName());
@@ -162,32 +170,28 @@ public class InitialIT  {
              
        } 
        
-        @When("I add  user with passing info to pojo class from scenario outline")
-        public void AddUserWithPOJOScOut( List<addUserPojo> adduser) throws MalformedURLException, InterruptedException {
+        @When("I add  user by passing {defineStringToPojo} to pojo class from scenario outline")
+        public void AddUserWithPOJOScOut( addUserPojo adduser) throws MalformedURLException, InterruptedException {
             
-           // System.out.println("firstname..."+ adduser.toString());
-             for (addUserPojo addUserFields : adduser) {
-                 System.out.println("firstname..."+addUserFields.getFirstName());
-                 System.out.println("LastName..."+addUserFields.getLastName());
-                 System.out.println("username..."+addUserFields.getusername());
-                 System.out.println("pwd..."+addUserFields.getpassword());
-                 System.out.println("email..."+addUserFields.getEmail());
-                 System.out.println("cellphone..."+addUserFields.getCellPhone());
-                 
-             }
-             /*
+           System.out.println("firstname..."+adduser.getFirstName());
+           System.out.println("LastName..."+adduser.getLastName());
+           System.out.println("username..."+adduser.getusername());
+           System.out.println("pwd..."+adduser.getpassword());
+           System.out.println("email..."+adduser.getEmail());
+           System.out.println("cellphone..."+adduser.getCellPhone());
+           
                   PageObjects.AddUser.click();
                 
                 global.wait.until(ExpectedConditions.visibilityOf(PageObjects.fName));
                
                  //    System.out.println("firstname:"+  PageObjects.fName+"lastname" );
-                 PageObjects.fName.sendKeys(addUserFields.getFirstName());
+                 PageObjects.fName.sendKeys(adduser.getFirstName());
                  Thread.sleep(1000);
-                 PageObjects.lName.sendKeys(addUserFields.getLastName());
+                 PageObjects.lName.sendKeys(adduser.getLastName());
                  Thread.sleep(1000);
-                 PageObjects.uName.sendKeys(addUserFields.getusername());
+                 PageObjects.uName.sendKeys(adduser.getusername());
                  Thread.sleep(1000);
-                 PageObjects.pWord.sendKeys(addUserFields.getpassword());
+                 PageObjects.pWord.sendKeys(adduser.getpassword());
                  Thread.sleep(1000);
                  PageObjects.customer.get(0).click();
                  Thread.sleep(1000);
@@ -195,15 +199,19 @@ public class InitialIT  {
                  Thread.sleep(1000);
                  PageObjects.sales.click();
                  Thread.sleep(1000);
-                 PageObjects.email.sendKeys(addUserFields.getEmail());
+                 PageObjects.email.sendKeys(adduser.getEmail());
                  Thread.sleep(1000);
-                 PageObjects.mphone.sendKeys(addUserFields.getCellPhone());
+                 PageObjects.mphone.sendKeys(adduser.getCellPhone());
                  Thread.sleep(1000);
                  PageObjects.save.click();
                  Thread.sleep(1000);
-             */
+             
        }
-       
+        @Then("I see user {defineStringToPojo} added to the table")
+         public void userAddedParamType(addUserPojo adduser){
+            System.out.println("username after addition"+ adduser.getusername());
+            assertThat(true).isEqualTo(true);
+         }
          @After
         public void closeBrowser() {
 

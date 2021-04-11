@@ -8,7 +8,7 @@ import java.net.URI;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class ReportPlugin implements EventListener {
+public class 	ReportPlugin implements EventListener {
 	
       private final Map<URI, String> testSource = new TreeMap<URI, String>();
       private final Map<String, String> definedSteps = new TreeMap<>();
