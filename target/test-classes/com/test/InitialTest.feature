@@ -1,17 +1,4 @@
 Feature: Initial Integration test feature
-
-   Scenario Outline: test long type
-     Given I log the type of <id> 
-  
-      Examples:
-        |id|
-        |  41  |
-   Scenario Outline: example
-    Given I log <TestString>
-    And perform guice test 
-      Examples:
-        |TestString|
-        |"                   " |
   
    # Scenario Outline: Add a <username> and validate the user has been added to the table
         

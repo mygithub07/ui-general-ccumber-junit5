@@ -28,14 +28,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.test.support.Global;
 //import com.test.support.BasePage;
 import com.test.support.Helpers;
-//import io.qameta.allure.Description;
-//import io.qameta.allure.Epic;
-//import io.qameta.allure.Feature;
-//import io.qameta.allure.Story;
-
-//@Epic("Initial integration test")
-//@Feature("Initial Integration test feature")
-//public class InitialIT extends BasePage {
 
 //@io.cucumber.junit.platform.engine.Cucumber
 public class InitialIT  {
@@ -51,16 +43,6 @@ public class InitialIT  {
          @Inject
        Global global;
 
-     @Given("I log the type of {long}")
-        public void logType(Long testLong ) {
-            System.out.println("type of " +testLong +" is:"+ testLong.getClass());
-       }
-   
-        @Given("I log {string}")
-        public void logSomething(String teststr )   {
-            System.out.println("sample text:"+ teststr+"somethingtoIdentifySpace");
-       }
-       
   /****** Old way of injecting****    
         @Inject
         public InitialIT(Global global) {
@@ -113,11 +95,12 @@ public class InitialIT  {
             assertThat(true).isEqualTo(true);
          }
       
-         @And("perform guice test" )
-                 public void guiceTest(){
+       /*  @And("perform guice test" )
+                public void guiceTest(){
                System.out.println(global.help.guiceTest());
                  }
-                 
+              */
+    
         @DataTableType
         public addUserPojo userentry(Map<String, String> entry) {
         return new addUserPojo(entry.get("FirstName"),entry.get("LastName"),entry.get("username"),entry.get("password"),entry.get("Email"),entry.get("CellPhone"));
@@ -131,7 +114,9 @@ public class InitialIT  {
         
        @When("I add  user with passing info to pojo class")
         public void AddUserWithPOJO( List<addUserPojo> adduser) throws MalformedURLException, InterruptedException {
-            
+            System.out.format("Thread ID -%2d- When - pojo scenario only\n",
+                   Thread.currentThread().getId()); 
+           
              for (addUserPojo addUserFields : adduser) {
                  System.out.println("firstname..."+addUserFields.getFirstName());
                  System.out.println("LastName..."+addUserFields.getLastName());
@@ -170,9 +155,12 @@ public class InitialIT  {
              
        } 
        
-        @When("I add  user by passing {defineStringToPojo} to pojo class from scenario outline")
+ @When("I add  user by passing {defineStringToPojo} to pojo class from scenario outline")
         public void AddUserWithPOJOScOut( addUserPojo adduser) throws MalformedURLException, InterruptedException {
             
+             System.out.format("Thread ID - %2d When -  pojo scenario outline\n",
+                   Thread.currentThread().getId());
+             
            System.out.println("firstname..."+adduser.getFirstName());
            System.out.println("LastName..."+adduser.getLastName());
            System.out.println("username..."+adduser.getusername());
@@ -209,6 +197,8 @@ public class InitialIT  {
        }
         @Then("I see user {defineStringToPojo} added to the table")
          public void userAddedParamType(addUserPojo adduser){
+             System.out.format("Thread ID -Then -  pojo scenario outline\n",
+                   Thread.currentThread().getId());
             System.out.println("username after addition"+ adduser.getusername());
             assertThat(true).isEqualTo(true);
          }
