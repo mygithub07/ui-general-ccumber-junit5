@@ -3,7 +3,7 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2021-04-12T13:17:31.394Z",
+        "start_timestamp": "2021-04-13T16:06:41.229Z",
         "line": 15,
         "name": "Add a user using pojo class in a scenario using data table and @DataTableType",
         "description": "",
@@ -11,7 +11,7 @@
         "after": [
           {
             "result": {
-              "duration": 136206000,
+              "duration": 129653000,
               "status": "passed"
             },
             "match": {
@@ -24,7 +24,7 @@
         "steps": [
           {
             "result": {
-              "duration": 6314845000,
+              "duration": 5542956000,
               "status": "passed"
             },
             "line": 16,
@@ -42,7 +42,7 @@
           },
           {
             "result": {
-              "duration": 12132401000,
+              "duration": 11854568000,
               "status": "passed"
             },
             "line": 17,
@@ -77,7 +77,7 @@
         ]
       },
       {
-        "start_timestamp": "2021-04-12T13:17:50.162Z",
+        "start_timestamp": "2021-04-13T16:06:58.929Z",
         "line": 29,
         "name": "Add a user using pojo class in scenario outline using @ParameterType",
         "description": "",
@@ -85,7 +85,7 @@
         "after": [
           {
             "result": {
-              "duration": 130124000,
+              "duration": 143259000,
               "status": "passed"
             },
             "match": {
@@ -98,7 +98,7 @@
         "steps": [
           {
             "result": {
-              "duration": 3697972000,
+              "duration": 3929816000,
               "status": "passed"
             },
             "line": 24,
@@ -116,7 +116,7 @@
           },
           {
             "result": {
-              "duration": 11825663000,
+              "duration": 11740038000,
               "status": "passed"
             },
             "line": 25,
@@ -134,7 +134,7 @@
           },
           {
             "result": {
-              "duration": 122454000,
+              "duration": 123922000,
               "status": "passed"
             },
             "line": 26,
@@ -153,7 +153,7 @@
         ]
       },
       {
-        "start_timestamp": "2021-04-12T13:18:06.016Z",
+        "start_timestamp": "2021-04-13T16:07:14.898Z",
         "line": 30,
         "name": "Add a user using pojo class in scenario outline using @ParameterType",
         "description": "",
@@ -161,7 +161,7 @@
         "after": [
           {
             "result": {
-              "duration": 124302000,
+              "duration": 124467000,
               "status": "passed"
             },
             "match": {
@@ -174,7 +174,7 @@
         "steps": [
           {
             "result": {
-              "duration": 3476474000,
+              "duration": 3312387000,
               "status": "passed"
             },
             "line": 24,
@@ -192,7 +192,7 @@
           },
           {
             "result": {
-              "duration": 11756813000,
+              "duration": 11810975000,
               "status": "passed"
             },
             "line": 25,
@@ -210,7 +210,7 @@
           },
           {
             "result": {
-              "duration": 1111000,
+              "duration": 1176000,
               "status": "passed"
             },
             "line": 26,
@@ -240,7 +240,7 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2021-04-12T13:18:21.448Z",
+        "start_timestamp": "2021-04-13T16:07:30.222Z",
         "line": 8,
         "name": "test long type",
         "description": "",
@@ -248,7 +248,7 @@
         "after": [
           {
             "result": {
-              "duration": 114070000,
+              "duration": 148573000,
               "status": "passed"
             },
             "match": {
@@ -261,7 +261,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1866671000,
+              "duration": 1860094000,
               "status": "passed"
             },
             "line": 4,
@@ -280,7 +280,7 @@
         ]
       },
       {
-        "start_timestamp": "2021-04-12T13:18:23.465Z",
+        "start_timestamp": "2021-04-13T16:07:32.269Z",
         "line": 14,
         "name": "example",
         "description": "",
@@ -288,7 +288,7 @@
         "after": [
           {
             "result": {
-              "duration": 159460000,
+              "duration": 142812000,
               "status": "passed"
             },
             "match": {
@@ -301,7 +301,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1672892000,
+              "duration": 1670027000,
               "status": "passed"
             },
             "line": 10,
@@ -319,7 +319,7 @@
           },
           {
             "result": {
-              "duration": 864000,
+              "duration": 2064000,
               "status": "passed"
             },
             "line": 11,
